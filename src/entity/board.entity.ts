@@ -1,9 +1,12 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Board {
-    @PrimaryColumn({name: 'id'})
+    @PrimaryGeneratedColumn({name: 'id'})
     id: number;
+
+    @Column()
+    userId: number;
 
     @Column()
     name: string;
