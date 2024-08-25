@@ -13,8 +13,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'fastcampus',
       password: 'fastcampus1234',
       database: 'postgres',
-      entities: [__dirname + '/**/*.entity.{.ts,.js}'],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: false,
+      logging: true,
     }),
     UserModule
   ],
