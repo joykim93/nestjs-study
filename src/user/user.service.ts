@@ -5,6 +5,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { hash, compare } from 'bcrypt'
 import { LoginUserDto } from 'src/dto/login-user.dto';
+import * as jwt from 'jsonwebtoken';
 
 @Injectable()
 export class UserService {
@@ -41,7 +42,18 @@ export class UserService {
 
         if (!match) throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
 
-        return user;
+        const payload = {
+            username,
+            name: user.name
+        }
+
+        const acessToken = await jwt.sign(payload, 'secret_key', {
+            expiresIn: '1h'
+        })
+
+        return {
+            acessToken
+        };
     }
 
     async encryptPassword(password: string) {
