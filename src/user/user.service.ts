@@ -29,6 +29,14 @@ export class UserService {
         });
     }
 
+    async getByUsername(username: string) {
+        const user = await this.userRepository.findOneBy({
+            username,
+        });
+
+        return user;
+    }
+
     async login(data: LoginUserDto) {
         const { username, password } = data;
 
