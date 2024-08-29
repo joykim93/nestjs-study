@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Board } from "./board.entity";
+import { Exclude } from "class-transformer";
 
 @Entity()
 export class User {
@@ -11,6 +12,7 @@ export class User {
 
     // @Column({ select: false })
     @Column()
+    @Exclude()
     password: string;
 
     @Column()
