@@ -2,9 +2,9 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { User } from 'src/entity/user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateUserDto } from 'src/dto/create-user.dto';
+import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { hash, compare } from 'bcrypt'
-import { LoginUserDto } from 'src/dto/login-user.dto';
+import { LoginUserDto } from 'src/user/dto/login-user.dto';
 import * as jwt from 'jsonwebtoken';
 
 @Injectable()
