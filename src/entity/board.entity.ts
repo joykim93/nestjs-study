@@ -10,9 +10,6 @@ export class Board {
     userId: number;
 
     @Column()
-    name: string;
-
-    @Column()
     contents: string;
 
     @UpdateDateColumn()
